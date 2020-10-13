@@ -60,6 +60,10 @@
 - `-i` é de "interativo", faz com que abra uma janela e te mostre os commits que só tem na sua branch;
 - `origin/master` é para dizer qual branch deve ser olhada (a master);
 
+```git push -f```
+
+- `-f` força as alterações da master que você colocou na sua branch a subirem
+
 ### Conflitos (conflicts)
 
 - dar `git status`, isso vai mostrar arquivos que têm conflitos;
