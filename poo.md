@@ -20,8 +20,10 @@ Estes exemplos usam uma loja de bolos para explicar POO.
 
 ### Herança
 
-- classe mãe (abstrata): uma forma que seria base para as filhas
-- classes filhas: cada uma é uma peça que encaixa na forma para fazer bolos diferentes, mas com a mesma base
+- classe mãe: uma forma que seria base para cozinhar os bolos:
+- classes filhas: cada uma é uma peça que encaixa na "forma" (classe) mãe para fazer bolos diferentes, mas com a mesma base
+
+- se a classe mãe for abstrata, quer dizer que só dá para cozinhar bolo usando a base (classe mãe) + uma peça (class filha)
 
 ### Visibilidade
 
