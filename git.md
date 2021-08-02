@@ -1,3 +1,13 @@
+## Iniciando o repositório
+
+`git init`
+
+- iniciar um repositório na sua máquina, um projeto novo
+
+`git clone`
+
+- quando já existe um repositório (github, gitlab, bitbucket, etc) e você quer copiar ele para sua máquina
+
 ## Salvar suas alterações no local 
 
 - `git add`: adiciona quais alterações você quer.
