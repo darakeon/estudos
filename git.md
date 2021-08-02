@@ -10,7 +10,7 @@
 
 ## Salvar suas alterações no local 
 
-- `git add`: adiciona quais alterações você quer.
+- `git add`: adiciona quais alterações você quer para criar um commit
 
 ```git add -p```
 
