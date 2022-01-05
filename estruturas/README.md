@@ -368,7 +368,7 @@ Agora podemos usar a `rotação simples a esquerda`, invertendo o `1` com seu fi
 
 ### Quatro métodos?! Como decorar???
 
-Se você tiver uma linha reta com os elementos desbalanceados, você torna o do meio da linha pai dos outros dois. Se estiver indo para um lado, em seguida para outro, o último Nó inserido é que se torna pai.
+Se você tiver uma linha reta com os elementos desbalanceados, você usa `rotação simples`. Se não, você usa a `rotação dupla`.
 
 
 ### Exemplo inserindo vários Nós
