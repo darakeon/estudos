@@ -878,6 +878,20 @@ Note que só preciso descer TRÊS níveis para encontrar o `10`. Já na árvore 
 Imagine se tivermos centenas, milhares de números, o quanto essa complexidade vai crescer! Por isso se usa a árvore balanceada: o trabalho na hora de balancear acaba poupando trabalho na hora de procurar.
 
 
+### Facilidade de implementação: média
+
+As regras de balanceamento da árvore tornam mais complexa a implementação. Além disso, a cada inserção pode ser necessário verificar diversas delas.
+
+Porém para achar um elemento é tão simples como na árvore de busca binária sem balanceamento.
+
+
+### Exemplo de uso
+
+O exemplo é o mesmo da árvore de busca binária: coleções que podem ser ordenadas para facilitar encontrar um elemento.
+
+Mas essa árvore, por não correr o risco de "crescer" demais para um lado só, tem mais garantia de acharmos o elemento mais rápido.
+
+
 ## Fila de prioridade (Heap)
 
 Existem dois tipos de fila de prioridade: aquelas em que o número menor é mais prioritário (MIN-HEAP) e aquelas em que o número maior é o mais prioritário (MAX-HEAP).
