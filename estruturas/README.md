@@ -1591,3 +1591,16 @@ Porém a árvore de busca binária pode ter tido os elementos inseridos de forma
 ```
 
 Dessa forma a altura dela acaba sendo a mesma quantidade de elementos: `n`. Por isso tanto buscar (`search`) quanto inserir (`insert`) ou excluir (`delete`) terão uma complexidade de `O(n)`.
+
+
+## Árvore de busca binária balanceada (binary search tree (balanced) - easy)
+
+| Operation | Average | Worst Case |
+| - | - | - |
+| search | O(log n) | O(log n) |
+| insert | O(log n) | O(log n) |
+| delete | O(log n) | O(log n) |
+
+No caso da árvore de busca binária balanceada, ela é mantida sempre próximo a sua altura mínima, porque em cada inserção feita a árvore é arrumada se necessário.
+
+Por isso, tanto o pior quanto o melhor tempo tem uma complexidade `O(log n)`.
