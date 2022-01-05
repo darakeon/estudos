@@ -9,9 +9,11 @@ Quando uma estrutura é um agrupamento de vários itens do mesmo tipo, ela é um
 
 O gaveteiro poderia ser representado pelo vetor: o gaveteiro seria um vetor, e cada gaveta seria uma variável dentro do vetor, um espaço disponível para guardar o que se deseja.
 
+
 ### Facilidade de implementação
 
 Vetores vêm já prontos por padrão nas linguagens de programação. Por esse motivo, você não cria uma implementação sua de vetor.
+
 
 ### Exemplo de uso
 
@@ -759,6 +761,7 @@ Então nossa árvore voltou a ser uma fila de prioridades, onde posso pegar o el
 
 
 ## Ordenação de Vetor
+
 
 ### Quicksort
 
