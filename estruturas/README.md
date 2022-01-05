@@ -53,6 +53,64 @@ Quando vamos passar por algum procedimento burocrático, falamos com um departam
 As listas ligadas funcionam da mesma forma. Um elemento aponta para o seguinte, o seguinte aponta para outro, assim por diante.
 
 
+### Facilidade de implementação: simples
+
+A implementação de uma lista ligada conta com dois componentes: um para representar a lista em si e outro para representar o item.
+
+O que pode confundir na hora de criar o item é o fato de que ele precisa apontar o próximo item. Para isso é usado ponteiro: o item atual "sabe" onde na memória do computador o próximo item deve ser encontrado.
+
+Um ponto de atenção na implementação da lista em si é a exclusão de itens. Dada uma lista:
+
+```
+  A -> B -> C -> D -> E
+```
+
+Temos `A` como primeiro item, ele está apontando para `B`, e `B` está apontado para `C`. Caso eu exclua o item `B`:
+
+```
+  A -> ???  C -> D -> E
+```
+
+Temos agora `A` apontando para o vazio e `C`, `D` e `E` perdidos no limbo. Precisamos ter o cuidado de fazer `A` apontar para o `C`.
+
+```
+  A -> C -> D -> E
+```
+
+Assim não perdemos um pedaço da lista.
+
+
+### Exemplo de uso
+
+A lista ligada serve para substituir o vetor em casos onde não se sabe a quantidade de itens quando vamos criar a coleção. Um bom exemplo é um sistema de vendas online. Quando a pessoa começa a comprar, você ainda não sabe qual a quantidade de itens que a pessoa vai comprar.
+
+Primeiro, pense que a pessoa adicionou um chocolate:
+
+```
+  chocolate
+```
+
+Depois, quis comprar um pão:
+
+```
+  chocolate -> pão
+```
+
+Aí decidiu comprar queijo:
+
+```
+  chocolate -> pão -> queijo
+```
+
+Então resolveu que não queria mais o pão, ia comer só queijo mesmo:
+
+```
+  chocolate -> queijo
+```
+
+Os itens apontarem uns para os outros não quer dizer que eles tenham alguma ligação, isso é feito apenas para que a lista possa crescer indefinidamente, pois cada item "sabe" onde encontrar o próximo item. Para quem usa o sistema, essa ligação é invisível.
+
+
 ## Vetor x Lista Ligada
 
 Mas se eu já posso guardar as coisas em vetores, porque foram inventadas as listas ligadas?
