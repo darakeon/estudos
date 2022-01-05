@@ -1051,6 +1051,7 @@ Exemplo: um sistema de pagamentos. Uma possível divisão seria:
 - Um micro serviço para as empresas configurarem preferências no sistema
 - Um micro serviço para o pessoal interno administrar o sistema
 
+
 ## Vantagens
 
 A vantagem do micro serviço vem da independência de cada parte. Isso faz com que, se uma das partes começar a dar problema, o resto não seja afetado.
@@ -1062,6 +1063,7 @@ Essa separação também possibilita que tenhamos tamanhos de infras diferentes 
 Já o micro serviço que atende o pessoal interno que administra o sistema tem poucos acessos, não precisa atender tanta gente, por isso pode ser feita uma infra mais simples.
 
 Mais uma vantagem é ter uma equipe mexendo apenas naquele micro serviço. Essa equipe não precisa conhecer o projeto como um todo para qualquer alteração que for ser feita. Novas pessoas entrando no projeto também aprenderão mais fácil a mexer nele. Projetos menores são mais fáceis de manter.
+
 
 ## Desvantagens
 
@@ -1083,6 +1085,7 @@ Assim, de forma simplista, se um algoritmo A custa 3 operações, e no computado
 Porém a ideia central não é comparar computadores, e sim comparar algoritmos. Quero saber como fazer os processos mais rápido, seja meu computador bom ou ruim. Por isso a medida em operações é mais eficiente.
 
 Se eu encontro um algoritmo B que resolve o mesmo problema, mas usa apenas 2 operações, no computador 1 (operação = 2 seg) vou levar 4 segundos, no computador 2 (operação = 10 seg) vou levar 20 segundos. Em qualquer dos dois computadores, eu fiz uma operação mais rápida.
+
 
 ## O que é o tal do "n"
 
