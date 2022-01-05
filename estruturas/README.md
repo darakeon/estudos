@@ -1039,9 +1039,39 @@ Depois disso, vamos tirando o elemento do topo, ajustando a árvore, tirando o d
 Paramos quando a árvore fica vazia. E, se olhar a coleção de números, agora ela está em ordem.
 
 
-# Micro-services
+# Micro serviços
 
-Divisão de um serviço em módulos, para rodar separado
+Divisão de um serviço em módulos, para rodar separado.
+
+O termo para ter apenas um projeto centralizado que tem tudo dentro é Monolito.
+
+Exemplo: um sistema de pagamentos. Uma possível divisão seria:
+- Um micro serviço para fazer as transações
+- Um micro serviço para as empresas se cadastrarem no sistema
+- Um micro serviço para as empresas configurarem preferências no sistema
+- Um micro serviço para o pessoal interno administrar o sistema
+
+## Vantagens
+
+A vantagem do micro serviço vem da independência de cada parte. Isso faz com que, se uma das partes começar a dar problema, o resto não seja afetado.
+
+Além disso, quando você tem uma alteração em um micro serviço, você pode fazer o deploy apenas daquele micro serviço, ao contrário do modelo original, o monolito, em que você precisa fazer deploy do sistema todo.
+
+Essa separação também possibilita que tenhamos tamanhos de infras diferentes para cada micro serviço. Por exemplo: transações podem ocorrer muitas por minuto, e ninguém quer ficar esperando muito a transação passar. Portanto é um micro serviço que precisa de uma infra robusta e extremamente tolerante a falha - se algo falhar, alguma coisa precisa imediatamente substituir esse algo.
+
+Já o micro serviço que atende o pessoal interno que administra o sistema tem poucos acessos, não precisa atender tanta gente, por isso pode ser feita uma infra mais simples.
+
+Mais uma vantagem é ter uma equipe mexendo apenas naquele micro serviço. Essa equipe não precisa conhecer o projeto como um todo para qualquer alteração que for ser feita. Novas pessoas entrando no projeto também aprenderão mais fácil a mexer nele. Projetos menores são mais fáceis de manter.
+
+## Desvantagens
+
+A desvantagem principal é quando tentamos dividir um projeto já pequeno em micro serviços. Todas as vantagens acima não são necessárias ao projeto pequeno pois, bem, ele é pequeno.
+
+Todas as vantagens acima de tornariam desvantagens nesse caso. Ter vários projetos para gerenciar quando você poderia estar cuidando de um só, sem a chance de mudar uma regra em uma parte que possa impactar em outra parte.
+
+Outro ponto é: com os micro serviços se comunicando entre si, temos mais tráfego de rede necessário para algo funcionar.
+
+Também existe a necessidade de se estabelecer padrões de segurança para todos seguirem. Sem isso, algum dos micro serviços poderia estar mais aberto a ataques.
 
 
 # Big O
