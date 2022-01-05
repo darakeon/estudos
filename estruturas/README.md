@@ -1554,3 +1554,40 @@ Quando esse cálculo tenta colocar um elemento em um espaço já ocupado, isso �
 Se nunca houver colisão, o tempo para procurar (`search`), inserir (`insert`) e excluir (`delete`) elementos é `O(1)`, pois basta fazer a conta de onde o elemento está / deveria estar e pegar, inserir ou excluir o elemento. O tempo sempre será o mesmo.
 
 Caso haja colisão, existe um risco de ficar colidindo até descobrir que não existe o elemento na lista (ou não existe um espaço para colocar o elemento, no caso de inserção). Nesse caso, teremos percorrido o espaço todo, então esse trabalho foi proporcional a quantidade de elementos que existem na coleção. São proporcionais a `n`, por isso o pior caso é `O(n)`.
+
+
+## Árvore de busca binária (binary search tree - easy)
+
+| Operation | Average | Worst Case |
+| - | - | - |
+| search | O(log n) | O(n) |
+| insert | O(log n) | O(n) |
+| delete | O(log n) | O(n) |
+
+Em uma árvore, quando se quer encontrar um elemento, você no máximo terá que ir até o elemento mais baixo da árvore. Exemplo:
+
+```
+     3
+   _/ \_
+  2     5
+ /     / \
+1     4   6
+```
+
+Nesse caso, a complexidade é `O(log n)`, que é a altura da árvore.
+
+Porém a árvore de busca binária pode ter tido os elementos inseridos de forma a ter crescido demais de um lado - ou ainda ter crescido apenas para um lado. Exemplo:
+
+```
+ 1
+  \
+   2
+    \
+     3
+      \
+       4
+        \
+         5
+```
+
+Dessa forma a altura dela acaba sendo a mesma quantidade de elementos: `n`. Por isso tanto buscar (`search`) quanto inserir (`insert`) ou excluir (`delete`) terão uma complexidade de `O(n)`.
