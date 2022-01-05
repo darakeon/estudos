@@ -203,6 +203,88 @@ Para seguir adicionando elementos, continuamos seguindo as mesmas regras. Ex:
 ```
 
 
+## Ordenação de Vetor
+
+### Quicksort
+
+A ideia do quicksort é pegar um elemento de um vetor desordenado e colocar todos os elementos maiores que ele depois dele, e todos os elementos menores antes dele. Existe mais de uma forma de escolher o elemento para usar:
+
+- pegar sempre o primeiro elemento;
+- pegar sempre o último elemento;
+- pegar sempre o elemento do meio;
+- pegar um elemento aleatório.
+
+Para o exemplo, vamos pegar sempre o último elemento:
+
+```
+{1,9,4,8,3,5,7}
+```
+
+Último elemento: `7`
+
+```
+{1,4,3,5}  7  {9,8}
+```
+
+Agora sabemos que 7 está na posição certa. Então vamos repetir o procedimento para os dois pedaços novos que criamos, separando e posicionando o último elemento do conjunto. Vamos representar elementos abaixo para ficar mais claro a subdivisão em grupos acontecendo.
+
+```
+                7
+           ____/ \____
+  {1,4,3,5}           {9,8}
+```
+
+```
+                7
+           ____/ \____
+          5           8
+       __/ \__     __/ \__
+{1,4,3}       {} {}       {9}
+```
+
+```
+                7
+           ____/ \____
+          5           8
+       __/ \__     __/ \__
+      3                   9
+     / \
+   {1} {4}
+```
+
+```
+                7
+           ____/ \____
+          5           8
+       __/ \__     __/ \__
+      3                   9
+     / \
+    1   4
+```
+
+Depois podemos colocar na mesma linha:
+
+```
+                7
+           ____/ \____
+          5           8
+       __/ \__     __/ \__
+    1_3_4                 9
+```
+
+```
+                7
+           ____/ \____
+    1_3_4_5           8___9
+```
+
+```
+    1_3_4_5_____7_____8___9
+```
+
+Assim temos o array ordenado.
+
+
 ## Implementações
 
 ### Lista ligada - implementação
