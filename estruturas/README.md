@@ -1034,6 +1034,16 @@ Agora está vago o lugar em que o `2` estava antes. Portanto olhamos para os fil
 Então nossa árvore voltou a ser uma fila de prioridades, onde posso pegar o elemento do topo tendo certeza de ser o mais prioritário e não existem buracos vazios na árvore.
 
 
+### Facilidade de implementação: média
+
+Após inserir um elemento, é necessário verificar se o elemento está na posição correta. Quando é removido, é preciso realocar o filho mais prioritário para cima.
+
+
+### Exemplo de uso
+
+Um sistema que implementa filas de prioridades é o sistema operacional do computador. Quando ele vai decidir se executa primeiro um processo ou o outro, não é decidido apenas pela ordem de chegada. Cada processo tem um nível de prioridade.
+
+
 ## Ordenação de Vetor
 
 
