@@ -9,6 +9,40 @@ Quando uma estrutura é um agrupamento de vários itens do mesmo tipo, ela é um
 
 O gaveteiro poderia ser representado pelo vetor: o gaveteiro seria um vetor, e cada gaveta seria uma variável dentro do vetor, um espaço disponível para guardar o que se deseja.
 
+### Facilidade de implementação
+
+Vetores vêm já prontos por padrão nas linguagens de programação. Por esse motivo, você não cria uma implementação sua de vetor.
+
+### Exemplo de uso
+
+Pensemos no desenvolvimento de um jogo. Abaixo está o mapa do caminho que precisa ser percorrido para chegar ao castelo, sendo que cada <> é uma cidade:
+
+```
+                                 P
+                                /\
+                                ||
+                              M_||_M
+          <>                  | __ |
+         /  \            <>---| || |
+ <>---<>´    \         _/
+              `<>---<>´
+```
+
+A cada fase você pode ganhar 3 estrelas, cada uma dependendo de algo que fez na cidade. Esse seria um bom exemplo de onde pode ser usado vetor em um projeto: você teria um vetor com 3 posições, uma para cada estrela, para dizer se a pessoa ganhou ou não a estrela em uma cidade.
+
+E cada cidade poderia ser representada com suas estrelas:
+
+```
+                                                 P
+                                                /\
+                                                ||
+                                              M_||_M
+               <** >                          | __ |
+               /   \                  <   >---| || |
+ <***>---<***>´     \               _/
+                     `<  *>---<* *>´
+```
+
 
 ## Lista ligada (Linked List)
 
