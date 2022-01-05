@@ -582,9 +582,9 @@ Note que só preciso descer TRÊS níveis para encontrar o `10`. Já na árvore 
 Imagine se tivermos centenas, milhares de números, o quanto essa complexidade vai crescer! Por isso se usa a árvore balanceada: o trabalho na hora de balancear acaba poupando trabalho na hora de procurar.
 
 
-## Fila de prioridade
+## Fila de prioridade (Heap)
 
-Existem dois tipos de fila de prioridade: aquelas em que o número menor é mais prioritário e aquelas em que o número maior é o mais prioritário.
+Existem dois tipos de fila de prioridade: aquelas em que o número menor é mais prioritário (MIN-HEAP) e aquelas em que o número maior é o mais prioritário (MAX-HEAP).
 
 Como árvores são melhores para buscar e inserir elementos do que estruturas lineares, a fila de prioridades usa, de fato, uma árvore.
 
