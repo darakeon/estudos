@@ -808,7 +808,235 @@ Assim temos o array ordenado.
 
 ### Heap sort
 
-O Heap sort trata-se de pegar item a item do vetor e adicionar em uma árvore de Heap. Dessa forma, ao ler os elementos da árvore, eles estarão ordenados.
+O Heap sort trata-se de usar uma fila de prioridades para ordernar uma coleção de elementos. Ao ler os elementos de uma Heap, leremos eles em ordem, devido a forma como é montada.
+
+A primeira coisa a fazer é colocar todos os elementos na Heap, na ordem em que estão na coleção, de cima para baixo, da esquerda para a direita.
+
+Digamos que nossa coleção de números seja:
+{`5`,`4`,`1`,`7`,`3`,`2`,`6`}
+
+```
+0              5
+            __/ \__
+         __/       \__
+1       4             1
+      _/ \_         _/ \_
+2    7     3       2     6
+```
+
+Após isso vamos a parte mais baixa a direita da árvore.
+
+Temos os elementos `2` e `6`.
+
+- Qual deles é mais prioritário?
+  - `2`
+- Ele é mais prioritário que o pai?
+  - Não
+
+Seguimos para o par do lado de `2` e `6`: `7` e `3`.
+
+- Qual deles é mais prioritário?
+  - `3`
+- Ele é mais prioritário que o pai?
+  - Sim!
+
+Trocamos o `3` com o pai dele `4`.
+
+```
+0              5
+            __/ \__
+         __/       \__
+1       3             1
+      _/ \_         _/ \_
+2    7     4       2     6
+```
+
+Como não existem mais Nós na última linha, subimos para a penúltima. Nosso par dessa vez é `3` e `1`.
+
+- Qual deles é mais prioritário?
+  - `1`
+- Ele é mais prioritário que o pai?
+  - Sim!
+
+Trocamos o `1` com o pai dele `5`.
+
+```
+0              1
+            __/ \__
+         __/       \__
+1       3             5
+      _/ \_         _/ \_
+2    7     4       2     6
+```
+
+Porém, ao fazermos isso, o `5` ficou acima do `2` e do `6`. Então vamos olhar novamente para o `2` e o `6`:
+
+- Qual deles é mais prioritário?
+  - `2`
+- Ele é mais prioritário que o pai?
+  - Sim!
+
+Trocamos o `2` com o pai dele `5`.
+
+```
+0              1
+            __/ \__
+         __/       \__
+1       3             2
+      _/ \_         _/ \_
+2    7     4       5     6
+```
+
+Como terminamos de descer, vamos voltar para onde estávamos antes: a segunda linha. Nela, não temos mais pares para verificar. Dessa forma, subimos novamente.
+
+Agora estamos na raiz da árvore, o número `1`. Como não existe comparação aqui - nem com irmão, nem com pai, terminamos de ordenar.
+
+Depois disso, vamos tirando o elemento do topo, ajustando a árvore, tirando o do topo de novo, assim por diante.
+
+- pega o topo e adiciona na coleção {`1`}
+
+```
+0              ?
+            __/ \__
+         __/       \__
+1       3             2
+      _/ \_         _/ \_
+2    7     4       5     6
+```
+
+- arruma a árvore
+
+```
+0              2
+            __/ \__
+         __/       \__
+1       3             5
+      _/ \_            \_
+2    7     4             6
+```
+
+- pega o topo e adiciona na coleção {`1`, `2`}
+
+```
+0              ?
+            __/ \__
+         __/       \__
+1       3             5
+      _/ \_            \_
+2    7     4             6
+```
+
+- arruma a árvore
+
+```
+0              3
+            __/ \__
+         __/       \__
+1       4             5
+      _/               \_
+2    7                   6
+```
+
+- pega o topo e adiciona na coleção {`1`, `2`, `3`}
+
+```
+0              ?
+            __/ \__
+         __/       \__
+1       4             5
+      _/               \_
+2    7                   6
+```
+
+- arruma a árvore
+
+```
+0              4
+            __/ \__
+         __/       \__
+1       7             5
+                       \_
+2                        6
+```
+
+- pega o topo e adiciona na coleção {`1`, `2`, `3`, `4`}
+
+```
+0              ?
+            __/ \__
+         __/       \__
+1       7             5
+                       \_
+2                        6
+```
+
+- arruma a árvore
+
+```
+0              5
+            __/ \__
+         __/       \__
+1       7             6
+
+-
+```
+
+- pega o topo e adiciona na coleção {`1`, `2`, `3`, `4`, `5`}
+
+```
+0              ?
+            __/ \__
+         __/       \__
+1       7             6
+
+-
+```
+
+- arruma a árvore
+
+```
+0              6
+            __/
+         __/
+1       7
+
+-
+```
+
+- pega o topo e adiciona na coleção {`1`, `2`, `3`, `4`, `5`, `6`}
+
+```
+0              ?
+            __/
+         __/
+1       7
+
+-
+```
+
+- arruma a árvore
+
+```
+0              7
+
+
+-
+
+-
+```
+
+- pega o topo e adiciona na coleção {`1`, `2`, `3`, `4`, `5`, `6`, `7`}
+
+```
+-
+
+
+-
+
+-
+```
+
+Paramos quando a árvore fica vazia. E, se olhar a coleção de números, agora ela está em ordem.
 
 
 ## Implementações
