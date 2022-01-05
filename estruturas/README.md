@@ -47,6 +47,41 @@ Pilhas também foram nomeadas de acordo com uma coisa que conhecemos do cotidian
 Lembra da expressão "os últimos serão os primeiros"? Pois é, é assim que pilhas funcionam.
 
 
+## Árvore
+
+A estrutura chamada de Árvore é baseada nas árvores do mundo real. As árvores que conhecemos têm um tronco e dele saem galhos. Destes galhos saem outros galhos. E assim por diante, até chegar às folhas.
+
+A estrutura é representada como uma árvore, mas de ponta cabeça, por causa da forma como escrevemos - de cima para baixo. Por exemplo:
+
+```
+                 A
+              __/|\__
+           __/   |   \__
+        __/      |      \__
+       B         C         D
+     _/|\_     _/|\_     _/|\_
+    E  F  G   H  I  J   K  L  M
+```
+
+Cada galho pode ter diversos galhos crescendo dele na árvore do mundo real, assim é também na estrutura de Árvore. O ponto onde um galho termina (por exemplo, a letra `D` na Árvore acima) é chamado de Nó. O início da árvore, onde tem um `A`, também é chamado de Nó, mas é um Nó especial, o Nó Raiz.
+
+A árvore inicia com o Nó `A`. Então se ramifica para 3 galhos. Os 3 galhos saindo de `A` também têm seus Nós: o galho da sua esquerda tem o Nó `B`, o galho do meio tem o Nó `C` e o galho da sua direita tem o Nó `D`.
+
+Para falar das ligações da estrutura de árvore, dizemos que:
+
+- `B`, `C` e `D` são Filhos de `A`;
+
+- `A` é o Pai de `B`, `C` e `D`;
+
+- `E`, `F` e `G` são Filhos de `B`;
+
+- `B` é o Pai de `E`, `F` e `G`;
+
+- e assim por diante.
+
+Um Nó que não tem nenhum filho é chamado de Folha - pois das folhas não saem novos galhos. No exemplo, nossos Nós Folha são: `E`, `F`, `G`, `H`, `I`, `J`, `K`, `L` e `M`.
+
+
 ## Implementações
 
 ### Lista ligada - implementação
