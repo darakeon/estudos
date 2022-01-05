@@ -214,6 +214,80 @@ Pilhas também foram nomeadas de acordo com uma coisa que conhecemos do cotidian
 Lembra da expressão "os últimos serão os primeiros"? Pois é, é assim que pilhas funcionam.
 
 
+### Facilidade de implementação: média
+
+A pilha é implementada usando um vetor ou uma lista para guardar seus elementos.
+
+Usando vetor, quando adiciono um elemento, coloco no final do vetor.
+
+Minha pilha:
+
+```
+| A | B | C |   |   |   |   |
+```
+
+Adiciono `D`:
+
+```
+| A | B | C | D |   |   |   |
+```
+
+Como o último elemento que coloquei será o primeiro que vou pegar (como em uma pilha de pratos), minha pilha apenas volta ao estado anterior removendo `D`, e não preciso andar com os elementos como na fila.
+
+```
+| A | B | C | D |   |   |   |
+```
+
+se torna:
+
+```
+| A | B | C |   |   |   |   |
+```
+
+A vantagem de usar uma lista na pilha é por a lista não precisar ter um tamanho fixo.
+
+É necessário guardar algumas informações para se ter uma pilha:
+- Uma coleção para guardar os elementos;
+- A informação de onde está o último elemento inserido, que será o primeiro a ser retirado e também será depois dele que qualquer elemento novo será adicionado;
+
+Na pilha, inserimos e removemos do mesmo lado: o topo da pilha.
+
+
+### Exemplo de uso
+
+Caso você for criar um browser, você usará uma pilha para implementar o histórico de páginas. Suponha que eu acesso a página do Google. Então faço uma pesquisa sobre chocolate. E entro na página de um mercado. O que acontece quando clico no botão de voltar?
+
+Acessei o google (adiciono Google na pilha):
+
+```
+Google
+```
+
+Pesquisei chocolate (adiciono Pesquisa na pilha):
+
+```
+Pesquisa Chocolate
+Google
+```
+
+Abri a página do mercado (adiciono Mercado na pilha):
+
+```
+Página do Mercado
+Pesquisa Chocolate
+Google
+```
+
+Cliquei no botão de voltar (tiro Mercado na pilha):
+
+```
+Pesquisa Chocolate
+Google
+```
+
+Eu volto a ver a página de Pesquisa de Chocolate. Repare que o topo da minha pilha representada aqui é sempre a página que estou vendo, mas as outras páginas que vi antes não somem da minha pilha. O único momento em que isso acontece é quando clico para voltar no browser.
+
+
 ## Árvore
 
 A estrutura chamada de Árvore é baseada nas árvores do mundo real. As árvores que conhecemos têm um tronco e dele saem galhos. Destes galhos saem outros galhos. E assim por diante, até chegar às folhas.
