@@ -1523,3 +1523,17 @@ Se olhar, a quantidade de comparações é `16`. O número de elementos é `4`. 
 A notação `n log n` significa que estamos multiplicando o `n` pelo `log n`. Os casos onde isso ocorre se devem ao algoritmo percorrer toda a lista (`n`) e, para cada item, executar uma operação que tenha a complexidade de um problema no estilo de árvore binária balanceada (`log n`).
 
 Por exemplo: tenho uma coleção com `4` elementos, e vou colocando um a um em uma árvore binária. A complexidade dessa operação que fiz com cada elemento é de `log 4`. Como fiz essa operação `4` vezes, isso resulta em `4 * log 4`.
+
+
+## Lista ligada (linked list - easy)
+
+| Operation | Average | Worst Case |
+| - | - | - |
+| insert | O(1) | O(1) |
+| search | O(n) | O(n) |
+| delete | O(n) | O(n) |
+| update | O(n) | O(n) |
+
+No caso da lista ligada, inserir (`insert`) um elemento é apenas apontar o último elemento da lista para o elemento novo. Portanto, não importa quantos elementos a lista já tenha: eu sabendo qual o último, a operação é simples.
+
+Já para buscar um elemento (`search`), existe a chance de eu ter que percorrer a lista toda. Para excluir (`delete`) ou atualizar (`update`), primeiro eu preciso buscar (`search`)o elemento, por isso a complexidade é a mesma.
