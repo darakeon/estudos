@@ -1046,7 +1046,6 @@ Um sistema que implementa filas de prioridades é o sistema operacional do compu
 
 ## Ordenação de Vetor
 
-
 ### Quicksort
 
 A ideia do quicksort é pegar um elemento de um vetor desordenado e colocar todos os elementos maiores que ele depois dele, e todos os elementos menores antes dele. Existe mais de uma forma de escolher o elemento para usar:
@@ -1125,6 +1124,11 @@ Depois podemos colocar na mesma linha:
 ```
 
 Assim temos o array ordenado.
+
+
+#### Facilidade de implementação: média
+
+É preciso determinar qual o elemento vai ser pego. Após colocar ele na posição correta, haverá duas recursões, uma para a lista que vem antes, outra para a lista que vem depois. Não é necessário fazer a recursão se a lista possuir menos de dois elementos: com UM elemento, ela já está ordenada, pois só tem ele; com ZERO, não há nada para ordenar.
 
 
 ### Heap sort
@@ -1358,6 +1362,18 @@ Depois disso, vamos tirando o elemento do topo, ajustando a árvore, tirando o d
 ```
 
 Paramos quando a árvore fica vazia. E, se olhar a coleção de números, agora ela está em ordem.
+
+
+#### Facilidade de implementação: média
+
+Você precisa posicionar todos os elementos na HEAP e depois ir analisando, de baixo para cima, se é necessário trocar algum elemento de lugar. Caso troque, precisa verificar se o que está abaixo daquele elemento não quebrou a regra de prioridade.
+
+Após isso, você precisa tirar os elementos da HEAP, trazendo para cima sempre o elemento filho que for mais prioritário.
+
+
+### Exemplo de uso
+
+Algoritmos de ordenação são muito usados para criar estruturas de banco de dados. Se eu preciso achar uma pessoa pelo nome e houve um indíce ordenado onde posso procurar por ordem alfabética para saber onde estão os dados da pessoa, será muito mais fácil que olhar toda a lista de pessoas cadastradas até achar quem eu preciso achar.
 
 
 # Micro serviços
