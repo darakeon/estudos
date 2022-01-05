@@ -285,6 +285,11 @@ Depois podemos colocar na mesma linha:
 Assim temos o array ordenado.
 
 
+### Heap sort
+
+O Heap sort trata-se de pegar item a item do vetor e adicionar em uma árvore de Heap. Dessa forma, ao ler os elementos da árvore, eles estarão ordenados.
+
+
 ## Implementações
 
 ### Lista ligada - implementação
