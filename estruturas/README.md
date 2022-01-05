@@ -1604,3 +1604,22 @@ Dessa forma a altura dela acaba sendo a mesma quantidade de elementos: `n`. Por 
 No caso da árvore de busca binária balanceada, ela é mantida sempre próximo a sua altura mínima, porque em cada inserção feita a árvore é arrumada se necessário.
 
 Por isso, tanto o pior quanto o melhor tempo tem uma complexidade `O(log n)`.
+
+
+## Fila de prioridades (binary min-heap - binary max-heap - medium)
+
+| Operation | Average | Worst Case |
+| - | - | - |
+| insert | O(log n) | O(log n) |
+| delete-min / delete-max | O(log n) | O(log n) |
+| find-min / find-max | O(1) | O(1) |
+
+No caso da fila de prioridades, a estrutura usada é a de uma árvore binária. Um elemento é sempre inserido (`insert`) no final dela e então é movido para cima até que seu pai seja mais prioritário que ele.
+
+Esse movimento para cima pode ser, no máximo, da altura da árvore. Portando a complexidade é `O(log n)`.
+
+Para remover o elemento mais prioritário (`delete-min`/`delete-max`), devemos remover o Nó Raiz. Porém, após remover, é necessário subir o filho dele que era mais prioritário, para que o Nó Raiz não fique vazio. No espaço que esse filho deixou, se houver mais Nós abaixo, outro Nó precisa subir. Essa operação segue até chegar a um Nó Folha, que não tenha filhos.
+
+Como, no máximo, chegaremos ao final da altura da árvore, novamente a complexidade é `O(log n)`.
+
+Já se quisermos apenas encontrar o elemento mais prioritário (`find-min`/`find-max`), a complexidade é `O(1)`, ou seja, não importa a quantidade de elementos que a árvore tem, a operação executará no mesmo mesmo. Isso porque sabemos exatamente onde o elemento mais prioritário está: no Nó Raiz.
