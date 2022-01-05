@@ -129,6 +129,24 @@ Uma equivalência do arquivo físico para a tabela hash seria: as etiquetas repr
 Curiosidade: existem linguagens da programação onde a tabela hash é chamada de dicionário ou hashmap.
 
 
+### Facilidade de implementação: simples
+
+Na tabela hash, cada item armazenado tem uma chave. Essa chave é transformada em um número através de uma conta. Esse número diz qual a posição em que o item deve ficar. Esses itens são guardados em vetores. Quando um item é buscado usando sua chave, a conta só precisa ser refeita para saber onde está o item.
+
+
+### Exemplo de uso
+
+Pense em um aplicativo em que você coloca uma palavra e ele te traz os significados. A palavra "dicionário" deve ter vindo a sua mente. O motivo de algumas linguagens usarem "dicionário" ao invés de hash table / hash map é a semelhança da ideia da Tabela Hash com os dicionários: você busca por uma palavra e vai a posição correta para encontrar os significados. No caso do dicionário físico a posição é apenas "calculada" pela ordem alfabética. Um mini dicionário ficaria assim:
+
+```
+chocolate: produto alimentício de cor marrom, sólido, pastoso ou em pó, que tem como matéria-prima o cacau a que se adicionam açúcar e certas substâncias aromáticas.
+
+queijo: produto obtido pela fermentação da coalhada, submetida à compressão e posta a secar no cincho.
+```
+
+Onde `chocolate` e `queijo` são chaves, e os significados deles são os valores das chaves.
+
+
 ## Fila
 
 Fila em programação tem a mesma utilidade de uma fila no mundo real. Pensemos na fila do caixa do supermercado. Quando uma pessoa nova chega, ela se posiciona atrás da última pessoa que chegou antes dela. Quando quem está atendendo chama a próxima pessoa, quem deve ser atendido é a primeira pessoa da fila, pois é a pessoa que está esperando há mais tempo.
