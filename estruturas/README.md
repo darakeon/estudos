@@ -1623,3 +1623,68 @@ Para remover o elemento mais prioritário (`delete-min`/`delete-max`), devemos r
 Como, no máximo, chegaremos ao final da altura da árvore, novamente a complexidade é `O(log n)`.
 
 Já se quisermos apenas encontrar o elemento mais prioritário (`find-min`/`find-max`), a complexidade é `O(1)`, ou seja, não importa a quantidade de elementos que a árvore tem, a operação executará no mesmo mesmo. Isso porque sabemos exatamente onde o elemento mais prioritário está: no Nó Raiz.
+
+
+## Ordenação de vetor (array sort - medium)
+
+| Operation | Average | Worst Case |
+| - | - | - |
+| sort - quicksort | O(n log n) | O(n^2) |
+| sort - heapsort | O(n log n) | O(n log n) |
+
+
+### Quicksort
+
+No quick sort o primeiro passo é escolher um elemento para ser usado de pivot: serão colocados antes dele todos os elementos menores que ele, não importando a ordem; e depois dele todos os elementos maiores que ele.
+
+Para saber quais elementos colocar antes e quais colocar depois, precisamos comparar o elemento que pegamos com todos os outros elementos. Por isso, faremos `n` comparações para vez que pegarmos um elemento. Ou seja, complexidade desse passo 1 é `O(n)`.
+
+No passo 2 são criadas duas coleções: menores e maiores. Cada uma dessas coleções também terá seu pivot escolhido e também sofrerá uma divisão.
+
+Como a divisão é feita em dois pedaços, existe a melhor possibilidade, em que dos dois pedaços são de tamanho igual.
+
+```
+              pivot
+             /     \
+(n/2) menores       maiores (n/2)
+```
+
+Então cada um dos dois pedaços se divide e gera `4` mini coleções a serem ordenadas, com `1/4` do conteúdo da coleção original, ou seja, `n/4`.
+
+```
+              pivot
+             /     \
+(n/2) menores       maiores (n/2)
+         |             |
+       pivot         pivot
+       menor         maior
+      /     \       /     \
+    (n/4)  (n/4)  (n/4)  (n/4)
+```
+
+Seguindo esse caminho, temos uma estrutura parecida com a da árvore binária em si. Portanto uma complexidade `O(log n)`.
+
+Multiplicando isso pelo `O(n)` que vimos antes, temos uma complexidade final de `O(n log n)`.
+
+No pior caso, quando eu pegar um elemento, ao tentar separar menores e maiores, uma das subcoleções ficará vazia e a outro ficará com todos os elementos (`n`), menos o pivot (`n-1`). Exemplo:
+
+```
+              pivot
+             /     \
+  (0) menores       maiores (n - 1)
+```
+
+Se isso for acontecendo sempre, ao invés de termos uma árvore binária, teremos quase toda a coleção sendo varrida toda vez.
+
+```
+              pivot
+             /     \
+  (0) menores       maiores (n - 1)
+                       |
+                     pivot
+                     maior
+                    /     \
+                  (0)    (n - 2)
+```
+
+Então essa segunda parte, na verdade, terá uma complexidade `O(n)`. Juntando ao `O(n)` do passo 1 (a comparação para achar o pivot), temos um `O(n^2)`.
