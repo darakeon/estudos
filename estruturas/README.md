@@ -203,6 +203,383 @@ Para seguir adicionando elementos, continuamos seguindo as mesmas regras. Ex:
 ```
 
 
+## Árvore de busca binária balanceada (AVL)
+
+Um problema é que, dependendo da ordem que os elementos entrarem, a árvore pode ficar com muito mais coisa de um lado que de outro.
+
+Por exemplo, se adicionarmos na ordem { `2`, `3`, `1`, `5`, `4`, `6`, `7` }, a árvore ficaria assim:
+
+```
+              2
+           __/ \__
+        __/       \__
+       1             3
+                      \_
+                        5
+                      _/ \_
+                     4     6
+                            \_
+                              7
+```
+
+A árvore do item anterior estava muito mais fácil de chegar ao `7`.
+
+Para corrigir isso existem as árvores binárias balanceadas. A regra é que nenhum Nó tenha mais de 1 nível de diferença entre o filho da esquerda e o filho da direita. Por exemplo, essa árvore já desobedece a regra:
+
+```
+0             2
+           __/ \__
+        __/       \__
+1      1             3
+                      \_
+2                       5
+                         \_
+3                          6
+```
+
+Do lado esquerdo de `3` não temos nenhum filho, porém do lado direito temos DOIS níveis de filhos. A verificação deve ser feita para todos os nós.
+
+Existem quatro formas de a árvore ficar desbalanceada.
+
+
+### Tudo para a esquerda
+
+Inserção: {`3`, `2`, `1`}
+
+```
+0             3
+           __/
+        __/
+1      2
+     _/
+2   1
+```
+
+Usaremos uma `rotação a direita simples`. Consiste em inverter a relação do `2` e do `3` (`2` se torna pai de `3`), mantendo todo o resto da árvore sendo filho de quem era originalmente (`1` continua sendo filho de `2`).
+
+```
+-
+
+
+0      2
+     _/ \_
+1   1     3
+```
+
+
+### Um para esquerda, um para direita
+
+Inserção: {`3`, `1`, `2`}
+
+```
+0             3
+           __/
+        __/
+1      1
+        \_
+2         2
+```
+
+Usaremos uma `rotação a direita dupla`. Antes de invertermos o `3` com seu filho da esquerda `1`, vamos inverter seu filho da esquerda `1` com o "neto" do `3`, que é o `2`, mantendo sempre a regra da árvore: `descendentes menores vão para a esquerda, descendentes maiores vão para a direita`:
+
+```
+0             3
+           __/
+        __/
+1      2
+     _/
+2   1
+```
+
+Agora podemos usar a `rotação simples a direita`, invertendo o `3` com seu filho `2`.
+
+```
+-
+
+
+0      2
+     _/ \_
+1   1     3
+```
+
+
+### Tudo para a direita
+
+Inserção: {`1`, `2`, `3`}
+
+```
+0             1
+               \__
+                  \__
+1                    2
+                      \_
+2                       3
+```
+
+Usaremos uma `rotação a esquerda simples`. Ela de fato é como a `rotação a direita simples`, mas gira a árvore para o lado contrário. Consiste em inverter a relação do `2` e do `1` (`2` se torna pai de `1`), mantendo todo o resto da árvore sendo filho de quem era originalmente.
+
+```
+-
+
+
+0                    2
+                   _/ \_
+1                 1     3
+```
+
+
+### Um para direita, um para esquerda
+
+Inserção: {`1`, `3`, `2`}
+
+```
+0             1
+               \__
+                  \__
+1                    3
+                   _/
+2                 2
+```
+
+Usaremos uma `rotação a esquerda dupla` (espelho da `rotação a direita dupla`). Antes de invertermos o `1` com seu filho da direita `3`, vamos inverter seu filho da direita `3` com o "neto" do `1`, que é o `2`, mantendo sempre a regra da árvore: `descendentes menores vão para a esquerda, descendentes maiores vão para a direita`:
+
+```
+0             1
+               \__
+                  \_
+1                   2
+                     \_
+2                      3
+```
+
+Agora podemos usar a `rotação simples a esquerda`, invertendo o `1` com seu filho `2`.
+
+```
+0
+
+
+1                   2
+                  _/ \_
+2                1     3
+```
+
+
+### Quatro métodos?! Como decorar???
+
+Se você tiver uma linha reta com os elementos desbalanceados, você torna o do meio da linha pai dos outros dois. Se estiver indo para um lado, em seguida para outro, o último Nó inserido é que se torna pai.
+
+
+### Exemplo inserindo vários Nós
+
+Para manter a árvore balanceada, precisamos verificar se a regra está sendo obedecida toda vez que inserimos um novo elemento.
+
+Exemplo:
+
+- adicionar `2` (não desbalanceia):
+
+```
+0              2
+```
+
+- adicionar `3` (não desbalanceia):
+
+```
+0              2
+                \__
+                   \__
+1                     3
+```
+
+- adicionar `1` (não desbalanceia):
+
+```
+0              2
+            __/ \__
+         __/       \__
+1       1             3
+```
+
+- adicionar `5` (não desbalanceia):
+
+```
+0              2
+            __/ \__
+         __/       \__
+1       1             3
+                       \_
+2                        5
+```
+
+- adicionar `4` (DESBALANCEIA!!!):
+
+```
+0              2
+            __/ \__
+         __/       \__
+1       1             3
+                       \_
+2                        5
+                        /
+3                      4
+```
+
+Nesse caso, o desbalanceamento está acontecendo abaixo do `3`. O `5` está a `direita` do `3`, mas o `4` está a `esquerda` do `5`. Usaremos a `rotação dupla a esquerda`.
+
+Primeiro, invertemos a relação do `5` com o `4`:
+
+```
+0              2
+            __/ \__
+         __/       \__
+1       1             3
+                       \_
+2                        4
+                          \
+3                          5
+```
+
+Note que `4` passa a ser o filho de `3`.
+
+Então invertemos o `3` e o `4`. Lembrando que o `5` continua sendo filho do `4`:
+
+```
+0              2
+            __/ \__
+         __/       \__
+1       1             4
+                    _/ \_
+2                  3     5
+```
+
+- adicionar `7` (DESBALANCEIA!!!):
+
+```
+0              2
+            __/ \__
+         __/       \__
+1       1             4
+                    _/ \_
+2                  3     5
+                          \
+3                          7
+```
+
+Agora, se olharmos, a árvore voltou a ser desbalanceada. Dessa vez, para o Nó `2`: do lado esquerdo temos apenas um nível, enquanto do lado direito temos três.
+
+O maior nó filho de `2` é o `4`. O Nó que causou o desbalanceamento é o `7`. Se olharmos, `4` está a `direita` de `2` e `7` está a `direita` de `4`. Para resolver esse caso, usaremos `rotação simples a esquerda`: `4` passa a ser pai de `2`. `4` já era pai de `3` e de `5`
+
+```
+-
+
+
+0                     4
+                    _/|\_
+1                  2  3  5
+                  /       \
+2                1         7
+```
+
+Pera, mas isso deixou de ser uma árvore binária! O que aquele `3` tá fazendo ali?!
+
+Para esse caso, onde `4` já tinha na verdade um filho a esquerda, esse filho passa a ser seu "neto", descendo mais na árvore. Ou seja, `3` passa a ser filho do `2`.
+
+```
+-
+
+
+0                     4
+                    _/ \_
+1                  2     5
+                  / \     \
+2                1   3     7
+```
+
+- adicionar `6` (DESBALANCEIA!!!):
+
+```
+-
+
+
+0                     4
+                    _/ \_
+1                  2     5
+                  / \     \
+2                1   3     7
+                          /
+3                        6
+```
+
+Agora temos um desbalanceamento do Nó `5`: a esquerda nenhum filho, mas a direita temos dois níveis. `7` está a direita de `5`, mas `6` está a esquerda de `7`. Isso é mais um caso para a `rotação a esquerda dupla`!
+
+Primeiro invertemos a relação de `7` com `6`:
+
+```
+-
+
+
+0                     4
+                    _/ \_
+1                  2     5
+                  / \     \
+2                1   3     6
+                            \
+3                            7
+```
+
+Depois invertemos a relação de `5` com `6`, mantendo o `7` como filho do `6`:
+
+```
+-
+
+
+0                     4
+                    _/ \_
+1                  2     6
+                  / \   / \
+2                1   3 5   7
+
+-
+```
+
+Agora o `7` está mais perto de ser encontrado. Se a árvore incluísse `8`, `9` e `10` em seguida, desbalanceada ficaria:
+
+```
+0             2
+           __/ \__
+        __/       \__
+1      1             3
+                      \_
+2                       5
+                      _/ \_
+3                    4     6
+                            \_
+4                             7
+                               \_
+5                                8
+                                  \_
+6                                   9
+                                     \_
+7                                      10
+```
+
+Já usando a árvore balanceada:
+
+```
+0              4
+            __/ \__
+         __/       \__
+1       2             8
+      _/ \_         _/ \_
+2    1     3       6     9
+                  / \     \
+3                5   7     10
+```
+
+Note que só preciso descer TRÊS níveis para encontrar o `10`. Já na árvore não balanceada, preciso descer SETE níveis para encontrar o `10`, mais que o dobro do trabalho.
+
+Imagine se tivermos centenas, milhares de números, o quanto essa complexidade vai crescer! Por isso se usa a árvore balanceada: o trabalho na hora de balancear acaba poupando trabalho na hora de procurar.
+
+
 ## Ordenação de Vetor
 
 ### Quicksort
