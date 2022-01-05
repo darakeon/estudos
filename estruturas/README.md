@@ -81,6 +81,8 @@ Para falar das ligações da estrutura de árvore, dizemos que:
 
 Um Nó que não tem nenhum filho é chamado de Folha - pois das folhas não saem novos galhos. No exemplo, nossos Nós Folha são: `E`, `F`, `G`, `H`, `I`, `J`, `K`, `L` e `M`.
 
+Essa estrutura não linear é usada para facilitar a busca. Se eu quiser chegar até o `M`, eu só precisaria passar pelo `A` e pelo `D`, não por todos os elementos que existem, como seria em uma estrutura linear. Mais a frente veremos como se faz isso.
+
 
 ## Árvore binária
 
