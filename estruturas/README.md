@@ -1537,3 +1537,20 @@ Por exemplo: tenho uma coleção com `4` elementos, e vou colocando um a um em u
 No caso da lista ligada, inserir (`insert`) um elemento é apenas apontar o último elemento da lista para o elemento novo. Portanto, não importa quantos elementos a lista já tenha: eu sabendo qual o último, a operação é simples.
 
 Já para buscar um elemento (`search`), existe a chance de eu ter que percorrer a lista toda. Para excluir (`delete`) ou atualizar (`update`), primeiro eu preciso buscar (`search`)o elemento, por isso a complexidade é a mesma.
+
+
+## Tabela hash (hash table - easy)
+
+| Operation | Average | Worst Case |
+| - | - | - |
+| search | O(1) | O(n) |
+| insert | O(1) | O(n) |
+| delete | O(1) | O(n) |
+
+Elementos são adicionados na tabela hash usando a chave do elemento. Essa chave é transformada em um hash por um algoritmo. Esse hash é o que dará a posição do elemento em um vetor feito para ter todos os elementos.
+
+Quando esse cálculo tenta colocar um elemento em um espaço já ocupado, isso é chamado de colisão. Então um segundo algoritmo é usado para calcular um novo lugar para a chave, até que seja encontrado um espaço vazio.
+
+Se nunca houver colisão, o tempo para procurar (`search`), inserir (`insert`) e excluir (`delete`) elementos é `O(1)`, pois basta fazer a conta de onde o elemento está / deveria estar e pegar, inserir ou excluir o elemento. O tempo sempre será o mesmo.
+
+Caso haja colisão, existe um risco de ficar colidindo até descobrir que não existe o elemento na lista (ou não existe um espaço para colocar o elemento, no caso de inserção). Nesse caso, teremos percorrido o espaço todo, então esse trabalho foi proporcional a quantidade de elementos que existem na coleção. São proporcionais a `n`, por isso o pior caso é `O(n)`.
