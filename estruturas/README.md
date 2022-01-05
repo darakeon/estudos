@@ -152,6 +152,61 @@ Onde `chocolate` e `queijo` são chaves, e os significados deles são os valores
 Fila em programação tem a mesma utilidade de uma fila no mundo real. Pensemos na fila do caixa do supermercado. Quando uma pessoa nova chega, ela se posiciona atrás da última pessoa que chegou antes dela. Quando quem está atendendo chama a próxima pessoa, quem deve ser atendido é a primeira pessoa da fila, pois é a pessoa que está esperando há mais tempo.
 
 
+### Facilidade de implementação: média
+
+Filas podem ser implementadas tanto usando vetores quanto usando listas para guardar seus itens. A implementação mais simples é feita com listas. Com um vetor, cada vez que pegamos o primeiro elemento da fila, precisaríamos fazer os outros elementos "darem um passo a frente", veja:
+
+```
+| A | B | C | D | E | F | G | H | I | J | K |
+```
+
+Se pegamos o primeiro item, `A`:
+
+```
+|   | B | C | D | E | F | G | H | I | J | K |
+```
+
+Precisamos mover os outros todos, para que possamos depois pegar o `B`, assim por diante:
+
+```
+| B | C | D | E | F | G | H | I | J | K |   |
+```
+
+No caso de uma lista ligada, podemos apenas apontar o início da lista para o próximo elemento.
+
+```
+.- início           .- fim
+|                   |
+A -> B -> C -> D -> E
+```
+
+Pego `A`:
+
+```
+.- início           .- fim
+|                   |
+     B -> C -> D -> E
+```
+
+Aponto para o elemento seguinte:
+
+```
+     .- início      .- fim
+     |              |
+     B -> C -> D -> E
+```
+
+É necessário guardar algumas informações para se ter uma fila:
+- Uma coleção para guardar os elementos;
+- A informação de onde está o primeiro elemento da fila, para poder pegar ele quando for para pegar um elemento da lista;
+- A informação de onde está o último elemento da fila, para poder colocar o próximo elemento depois dele.
+
+
+### Exemplo de uso
+
+O sistema da impressora implementa uma fila. Quando a impressora recebe diversos documentos, o primeiro que ela vai imprimir é o primeiro que chegou para ela. Em seguida ela imprime o que chegou depois. Até terminar a fila de impressão.
+
+
 ## Pilha
 
 Pilhas também foram nomeadas de acordo com uma coisa que conhecemos do cotidiano. Você acabou de comer e colocou seu prato em cima da pia. Em seguida, uma outra pessoa terminou e colocou o prato dela em cima do seu prato. Qual o primeiro prato que você irá pegar da PILHA de pratos para lavar? O último que foi colocado na pilha. E em seguida? O que foi colocado antes dele.
