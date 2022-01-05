@@ -1074,7 +1074,30 @@ Outro ponto é: com os micro serviços se comunicando entre si, temos mais tráf
 Também existe a necessidade de se estabelecer padrões de segurança para todos seguirem. Sem isso, algum dos micro serviços poderia estar mais aberto a ataques.
 
 
-# Big O
+# Big O - O(1), O(n)...
 
-- mede o "tempo" de um algoritmo
-- revisar algoritmos planilha
+É uma medida de "tempo" de um algoritmo. Porque "tempo", entre aspas? Computadores são diferentes e executam as mesmas operações em tempos diferentes. Não seria possível encontrar uma medida de tempo que atendesse a todos os computadores. Então foi criada uma medida que é baseada não no nosso tempo real, mas no número de operações que o computador precisará fazer.
+
+Assim, de forma simplista, se um algoritmo A custa 3 operações, e no computador 1 eu levo 2 segundos para cada operação, dará um tempo de 6 segundos. Se em outro computador a operação levar 10 segundos, eu teria um tempo total de 30 segundos.
+
+Porém a ideia central não é comparar computadores, e sim comparar algoritmos. Quero saber como fazer os processos mais rápido, seja meu computador bom ou ruim. Por isso a medida em operações é mais eficiente.
+
+Se eu encontro um algoritmo B que resolve o mesmo problema, mas usa apenas 2 operações, no computador 1 (operação = 2 seg) vou levar 4 segundos, no computador 2 (operação = 10 seg) vou levar 20 segundos. Em qualquer dos dois computadores, eu fiz uma operação mais rápida.
+
+## O que é o tal do "n"
+
+Existem algoritmos que executam sempre no mesmo "tempo". Porém existem casos em que isso varia de acordo com o tamanho do problema que precisamos resolver. E esse tamanho é o nosso "n".
+
+Exemplo: um livro com n páginas
+
+- Você precisa pegar um livro da estante e colocar na sua cabeceira
+
+O tempo gasto é constante, não importa o número de páginas: você só vai até a estante, pega o livro, vai até a cabeceira, pousa o livro ali e pronto.
+
+- Você precisa ler o livro
+
+Nesse caso, vai depender do número de páginas do livro para saber quanto tempo vai demorar. 20 páginas passam mais rápido que 200, se ambos os livros tiverem o mesmo nível de complexidade do tema para você.
+
+Se estuda a complexidade de um algoritmo de forma a conseguir tornar os programas mais rápidos de serem executados.
+
+Por exemplo, se você precisa ler o livro mais rápido, desenvolver uma forma de ler apenas as palavras chave e conseguir ainda sim entender o texto seria mais eficiente. Assim seria possível diminuir a complexidade do problema.
