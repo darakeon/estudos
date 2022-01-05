@@ -478,6 +478,29 @@ Para seguir adicionando elementos, continuamos seguindo as mesmas regras. Ex:
 ```
 
 
+### Facilidade de implementação: simples
+
+A única adição de regra feita na árvore de busca binária em relação a árvore binária é a exigência de uma ordenação: um elemento menor que o elemento do nó deve ser encaminhado para a esquerda, enquanto um maior ou igual deve ser encaminhado para a direita.
+
+
+### Exemplo de uso
+
+Essas árvores são usadas para ordenar coleções de elementos. Exemplo:
+
+```
+              4
+           __/ \__
+        __/       \__
+       2             6
+     _/ \_         _/ \_
+    1     3       5     7
+```
+
+Se esses números tivessem sido colocados em uma lista, talvez estivessem desordenados. Caso tivessem sido colocados ordenados, ainda seria uma lista {`1`,`2`,`3`,`4`,`5`,`6`,`7`}, e para chegar ao 7 eu precisaria passar pelos 6 elementos anteriores.
+
+No caso da árvore de busca binária, eu olho para o primeiro elemento, sei que `7` é maior que `4`. Vou para a direita. `7` também é maior que `6`. Para a direita novamente. Encontro o `7`. Tendo passado por apenas dois elementos.
+
+
 ## Árvore de busca binária balanceada (AVL)
 
 Um problema é que, dependendo da ordem que os elementos entrarem, a árvore pode ficar com muito mais coisa de um lado que de outro.
