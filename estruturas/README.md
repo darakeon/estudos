@@ -543,7 +543,7 @@ Depois invertemos a relação de `5` com `6`, mantendo o `7` como filho do `6`:
 -
 ```
 
-Agora o `7` está mais perto de ser encontrado. Se a árvore incluísse `8`, `9` e `10` em seguida, desbalanceada ficaria:
+Agora o `7` está mais perto de ser encontrado. Se a árvore incluísse `8`, `9` e `10` em seguida, SEM o balanceamento ficaria:
 
 ```
 0             2
@@ -580,6 +580,148 @@ Já usando a árvore balanceada:
 Note que só preciso descer TRÊS níveis para encontrar o `10`. Já na árvore não balanceada, preciso descer SETE níveis para encontrar o `10`, mais que o dobro do trabalho.
 
 Imagine se tivermos centenas, milhares de números, o quanto essa complexidade vai crescer! Por isso se usa a árvore balanceada: o trabalho na hora de balancear acaba poupando trabalho na hora de procurar.
+
+
+## Fila de prioridade
+
+Existem dois tipos de fila de prioridade: aquelas em que o número menor é mais prioritário e aquelas em que o número maior é o mais prioritário.
+
+Como árvores são melhores para buscar e inserir elementos do que estruturas lineares, a fila de prioridades usa, de fato, uma árvore.
+
+```
+0              1
+            __/ \__
+         __/       \__
+1       2             3
+      _/ \_         _/ \_
+2    4     5       6     7
+    / \   / \     / \   / \
+3  8   9 10  11  12 13 14 15
+```
+
+A fila de prioridade é um tipo de árvore binária, mas não é uma árvore de BUSCA binária. Isso porque sua meta é encontrar o valor mais prioritário: se ele estiver no topo da árvore, podemos sempre pegar o item do topo.
+
+Por não ser uma árvore de busca binária, a inserção funciona de forma diferente.
+
+Vamos usar um exemplo com o número `menor` sendo o MAIS prioritário.
+
+Colocamos sempre o número na primeira posição "vaga" da árvore.
+
+- insere `4`:
+
+```
+0              4
+```
+
+Depois que inserimos, precisamos verificar se o elemento está acima de todos os que são menos prioritários que ele. Nesse caso, só temos um elemento, portanto não precisamos fazer nada.
+
+- insere `2`:
+
+```
+0              4
+            __/
+         __/
+1       2
+```
+
+Dessa vez o `2` seria mais prioritário, mas está abaixo do `4`. Para arrumar isso, vamos inverter os dois.
+
+```
+0              2
+            __/
+         __/
+1       4
+```
+
+- insere `3`:
+
+```
+0              2
+            __/ \__
+         __/       \__
+1       4             3
+```
+
+O `3` não é mais prioritário que o `2`, então podemos seguir.
+
+- insere `1`:
+
+```
+0              2
+            __/ \__
+         __/       \__
+1       4             3
+      _/
+2    1
+```
+
+O `1` é mais prioritário que o `4`. Vamos inverter.
+
+```
+0              2
+            __/ \__
+         __/       \__
+1       1             3
+      _/
+2    4
+```
+
+Mas ainda temos um problema. O `1` também é mais prioritário que o `2`. Para arrumar de fato a árvore, checamos o elemento inserido verificando todos aqueles que estão acima dele na árvore. Vamos inverter o `1` com o `2`.
+
+```
+0              1
+            __/ \__
+         __/       \__
+1       2             3
+      _/
+2    4
+```
+
+E vamos inserindo e arrumando, sucessivamente.
+
+Mas e quando tirarmos o elemento mais prioritário?
+
+```
+0              ?
+            __/ \__
+         __/       \__
+1       2             3
+      _/
+2    4
+```
+
+Nesse caso, alguém vai precisar subir e assumir o lugar. Se subirmos o `3`, a árvore passa a estar errada, porque `2` é mais prioritário que `3`:
+
+```
+0              3
+            __/
+         __/
+1       2
+      _/
+2    4
+```
+
+Então faz sentido sempre subir o filho mais prioritário, nesse caso, o `2`.
+
+```
+0              2
+            __/ \__
+         __/       \__
+1       ?             3
+      _/
+2    4
+```
+
+Agora está vago o lugar em que o `2` estava antes. Portanto olhamos para os filhos do `2` e pegamos o mais prioritário para colocar no lugar dele. Nesse caso, seria o `4`, inclusive porque é seu único filho.
+
+```
+0              2
+            __/ \__
+         __/       \__
+1       4             3
+```
+
+Então nossa árvore voltou a ser uma fila de prioridades, onde posso pegar o elemento do topo tendo certeza de ser o mais prioritário e não existem buracos vazios na árvore.
 
 
 ## Ordenação de Vetor
