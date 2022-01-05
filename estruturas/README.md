@@ -118,7 +118,7 @@ Além das regras de árvore e da regra de árvore binária, temos regras para ad
 - Se for o primeiro, é colocado no Nó Raiz;
 - Se não, comparamos com o primeiro:
   - Se for menor que o primeiro, olhamos para a esquerda;
-  - Se for maior que o primeiro, olhamos para a direita.
+  - Se for maior ou igual ao primeiro, olhamos para a direita.
 
 Exemplo: adicionar `4`, `2`, `6`:
 
