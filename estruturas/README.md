@@ -1441,3 +1441,85 @@ Nesse caso, vai depender do número de páginas do livro para saber quanto tempo
 Se estuda a complexidade de um algoritmo de forma a conseguir tornar os programas mais rápidos de serem executados.
 
 Por exemplo, se você precisa ler o livro mais rápido, desenvolver uma forma de ler apenas as palavras chave e conseguir ainda sim entender o texto seria mais eficiente. Assim seria possível diminuir a complexidade do problema.
+
+
+## O que cada notação significa
+
+Abaixo serão usados exemplos com segundos para tornar a explicação mais próxima do mundo real. Porém operações com computadores costumam ser contadas em milissegundos ou até nanosegundos, e o aumento do tempo de um algoritmo não vai ser exato, estes exemplos são meramente ilustrativos.
+
+### O(1)
+
+Não importa quantos dados eu esteja lidando, meu tempo de execução será constante, sempre o mesmo, pois a operação não depende da quantidade de dados (como o exemplo de colocar o livro na cabeceira).
+
+### O(n)
+
+Quanto mais dados eu tiver, mais tempo vou demorar, proporcionalmente. Se uma coleção com `10` elementos me toma `30` segundos de execução de um algoritmo, uma coleção com `20` elementos vai tomar `60` segundos, com `100` elementos irá levar `300` segundos (5 minutos), assim sucessivamente.
+
+### O(log n)
+
+Se eu tiver uma coleção de `2` elementos apenas e um algoritmo levar `1` segundo para executar usando ela, uma coleção com `4` elementos vai levar `2` segundos. Com `8` elementos, `3` segundos. Isso por causa da eficiência do algoritmo.
+
+`log n` significa fazer o log na base `2` do número de elementos da coleção - quando estamos falando da notação Big O.
+
+Esse é um tempo que acontece com algoritmos baseados na ideia de árvores binárias balanceadas. Eis o motivo:
+
+Uma árvore binária com `2` elementos:
+
+```
+      1
+     /
+    0
+```
+
+Para encontrar qualquer elemento, vou dar, no máximo, `1` (`log 2`) passo para baixo.
+
+Uma árvore binária com `4` elementos:
+
+```
+      2
+     / \
+    1   3
+   /
+  0
+```
+
+Para encontrar qualquer elemento, vou dar, no máximo, `2` (`log 4`) passos para baixo.
+
+Uma árvore binária com 8 elementos:
+
+```
+        4
+     __/ \__
+    2       6
+   / \     / \
+  1   3   5   7
+ /
+0
+```
+
+Para encontrar qualquer elemento, vou dar, no máximo, `3` (`log 8`) passos para baixo.
+
+Para calcular a altura de uma árvore binária balanceada a fórmula é `log n`. E como no máximo a gente vai precisar ir até o ponto mais baixo da árvore, então no máximo faremos `log n` operações.
+
+
+### O(n^2)
+
+Quanto mais dados eu tiver, mais tempo vou demorar, mas `ao quadrado` dessa vez (`^2`). Isso acontece quando eu percorro a coleção toda de dados e, para cada item, eu percorro ela toda de novo.
+
+Por exemplo: tenho uma coleção {`7`,`2`,`5`,`3`}. E quero comparar cada elemento com todos os outros elementos. Eu poderia fazer isso com uma matriz:
+
+|     | `7` | `2` | `5` | `3` |
+| --- | --- | --- | --- | --- |
+| `7` |  =  |  >  |  >  |  >  |
+| `2` |  <  |  =  |  <  |  <  |
+| `5` |  <  |  >  |  =  |  >  |
+| `3` |  <  |  >  |  <  |  =  |
+
+Se olhar, a quantidade de comparações é `16`. O número de elementos é `4`. Para cada elemento, eu fiz `4` comparações. E `4` elevado a segunda (`^2`) é `16`.
+
+
+### O(n log n)
+
+A notação `n log n` significa que estamos multiplicando o `n` pelo `log n`. Os casos onde isso ocorre se devem ao algoritmo percorrer toda a lista (`n`) e, para cada item, executar uma operação que tenha a complexidade de um problema no estilo de árvore binária balanceada (`log n`).
+
+Por exemplo: tenho uma coleção com `4` elementos, e vou colocando um a um em uma árvore binária. A complexidade dessa operação que fiz com cada elemento é de `log 4`. Como fiz essa operação `4` vezes, isso resulta em `4 * log 4`.
