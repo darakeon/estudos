@@ -82,6 +82,127 @@ Para falar das ligações da estrutura de árvore, dizemos que:
 Um Nó que não tem nenhum filho é chamado de Folha - pois das folhas não saem novos galhos. No exemplo, nossos Nós Folha são: `E`, `F`, `G`, `H`, `I`, `J`, `K`, `L` e `M`.
 
 
+## Árvore binária
+
+Uma árvore binária é uma árvore em que cada nó pode ter, no máximo, `2` filhos. Ela segue todas as regras mencionadas na árvore.
+
+```
+              A
+           __/ \__
+        __/       \__
+       B             D
+     _/ \_         _/ \_
+    E     G       K     M
+```
+
+
+## Busca binária
+
+Busca binária é um tipo de busca usado para otimizar tempo. Por exemplo, pense em uma lista de notas organizada por matrícula. Você sabe seu número de matrícula, mas a lista é enorme.
+
+Foi descoberto um jeito mais simples de fazer isso. Você vai até a metade da lista. Se o número da matrícula na metade da lista for menor que o seu significa que você está depois daquela matrícula. Isso faz com que você possa ignorar a metade de cima da lista e olhar apenas na metade de baixo.
+
+Você pega então a parte de baixo da lista. Ainda tem muita coisa. Você segue o mesmo método: divide a nova lista em duas novamente e olha se o número do meio é menor ou maior que sua matrícula. Dessa vez, você descobre que a matrícula do meio é maior que a sua. Então sua matrícula só pode estar antes dela. A parte abaixo dela pode ser ignorada.
+
+Dessa forma, primeiro você descarta metade da lista, depois metade da metade (um quarto), e assim por diante, até sobrar apenas a sua matrícula. Isso é uma busca binária.
+
+
+## Árvore de busca binária
+
+Essa árvore é uma combinação da árvore binária com a busca binária.
+
+Além das regras de árvore e da regra de árvore binária, temos regras para adicionar elementos:
+
+- Se for o primeiro, é colocado no Nó Raiz;
+- Se não, comparamos com o primeiro:
+  - Se for menor que o primeiro, olhamos para a esquerda;
+  - Se for maior que o primeiro, olhamos para a direita.
+
+Exemplo: adicionar `4`, `2`, `6`:
+
+- adicionar `4`:
+
+```
+              4
+```
+
+- adicionar `2`:
+
+```
+              4
+           __/
+        __/
+       2
+```
+
+- adicionar `6`:
+
+```
+              4
+           __/ \__
+        __/       \__
+       2             6
+```
+
+Para seguir adicionando elementos, continuamos seguindo as mesmas regras. Ex:
+
+- adicionar `3`:
+  - é menor que `4`: vou para a esquerda do `4`;
+  - é maior que `2`: vou para a direita do `2`;
+  - está vazio, coloco o `3` ali.
+
+```
+              4
+           __/ \__
+        __/       \__
+       2             6
+        \_
+          3
+```
+
+- adicionar `5`:
+  - é maior que `4`, vou para a direita do `4`;
+  - é menor que `6`, vou para a esquerda do `6`;
+  - está vazio, coloco o `5` ali.
+
+```
+              4
+           __/ \__
+        __/       \__
+       2             6
+        \_         _/
+          3       5
+```
+
+- adicionar `7`:
+  - é maior que `4`, vou para a direita do `4`;
+  - é maior que `6`, vou para a direita do `6`;
+  - está vazio, coloco o `7` ali.
+
+```
+              4
+           __/ \__
+        __/       \__
+       2             6
+        \_         _/ \_
+          3       5     7
+```
+
+- adicionar `1`:
+  - é menor que `4`, vou para a esquerda do `4`;
+  - é menor que `2`, vou para a esquerda do `2`;
+  - está vazio, coloco o `7` ali.
+
+```
+              4
+           __/ \__
+        __/       \__
+       2             6
+     _/ \_         _/ \_
+    1     3       5     7
+```
+
+
 ## Implementações
 
 ### Lista ligada - implementação
