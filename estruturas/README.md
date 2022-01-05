@@ -325,6 +325,28 @@ Um Nó que não tem nenhum filho é chamado de Folha - pois das folhas não saem
 Essa estrutura não linear é usada para facilitar a busca. Se eu quiser chegar até o `M`, eu só precisaria passar pelo `A` e pelo `D`, não por todos os elementos que existem, como seria em uma estrutura linear. Mais a frente veremos como se faz isso.
 
 
+### Facilidade de implementação: simples
+
+Uma árvore se parece com uma lista ligada em sua implementação. A diferença é que, ao invés de ligar um elemento a apenas um outro elemento, que vem depois, você pode ligar o elemento a vários outros elementos, seus filhos.
+
+Uma árvore deve apenas saber quem é seu primeiro Nó, o Nó Raiz. Esse Nó deve ter uma coleção de elementos para seus filhos. Se não houver filhos, a coleção está vazia.
+
+
+### Exemplo de uso
+
+Se você fizer um site tenha um formulário de cadastro de endereços, você poderia usar uma árvore para guardar estados e cidades. Sabemos que um estado tem diversas cidades e um país tem diversos estados.
+
+Exemplo:
+
+```
+           _____ Brasil _____
+          /                  \
+     Amazonas              Tocantins
+    /        \            /         \
+Humaitá    Manacapuru  Paranã     Sampaio
+```
+
+
 ## Árvore binária
 
 Uma árvore binária é uma árvore em que cada nó pode ter, no máximo, `2` filhos. Ela segue todas as regras mencionadas na árvore.
