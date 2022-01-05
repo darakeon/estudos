@@ -1688,3 +1688,11 @@ Se isso for acontecendo sempre, ao invés de termos uma árvore binária, teremo
 ```
 
 Então essa segunda parte, na verdade, terá uma complexidade `O(n)`. Juntando ao `O(n)` do passo 1 (a comparação para achar o pivot), temos um `O(n^2)`.
+
+
+### Heapsort
+
+A ideia da Heapsort é usar uma Heap para ordenar os elementos. Após colocar todos os elementos sem ordem na Heap, para cada elemento que temos, precisaremos comparar com os elementos pais deles até que eles estejam  
+alocados no lugar certo.
+
+Sendo uma árvore binária, o trabalho para fazer essa comparação é de `O(log n)`. Como vamos ter que fazer essa comparação com todos os `n` elementos, então multiplicamos o trabalho por `n`, dando uma complexidade final de `O(n log n)`.
