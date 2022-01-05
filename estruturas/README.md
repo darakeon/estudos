@@ -37,7 +37,14 @@ Curiosidade: existem linguagens da programação onde a tabela hash é chamada d
 
 ## Fila
 
+Fila em programação tem a mesma utilidade de uma fila no mundo real. Pensemos na fila do caixa do supermercado. Quando uma pessoa nova chega, ela se posiciona atrás da última pessoa que chegou antes dela. Quando quem está atendendo chama a próxima pessoa, quem deve ser atendido é a primeira pessoa da fila, pois é a pessoa que está esperando há mais tempo.
 
+
+## Pilha
+
+Pilhas também foram nomeadas de acordo com uma coisa que conhecemos do cotidiano. Você acabou de comer e colocou seu prato em cima da pia. Em seguida, uma outra pessoa terminou e colocou o prato dela em cima do seu prato. Qual o primeiro prato que você irá pegar da PILHA de pratos para lavar? O último que foi colocado na pilha. E em seguida? O que foi colocado antes dele.
+
+Lembra da expressão "os últimos serão os primeiros"? Pois é, é assim que pilhas funcionam.
 
 
 ## Implementações
