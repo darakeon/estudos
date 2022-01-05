@@ -361,6 +361,16 @@ Uma árvore binária é uma árvore em que cada nó pode ter, no máximo, `2` fi
 ```
 
 
+### Facilidade de implementação: simples
+
+A diferença de implementação para a árvore é que, ao invés de haver uma coleção de filhos, o Nó desta árvore terá apenas dois: o filho da direita e o filho da esquerda.
+
+
+### Exemplo de uso
+
+Se fôssemos criar um jogo onde, dependendo da escolha da pessoa, a estória toma um rumo diferente, e as escolhas fossem de "Sim" ou "Não", poderíamos armazenar a estrutura da história em uma árvore binária: caso a pessoa respondesse sim, iria para a esquerda. Caso não, iria para a direita.
+
+
 ## Busca binária
 
 Busca binária é um tipo de busca usado para otimizar tempo. Por exemplo, pense em uma lista de notas organizada por matrícula. Você sabe seu número de matrícula, mas a lista é enorme.
