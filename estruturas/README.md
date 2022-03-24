@@ -47,7 +47,7 @@ E cada cidade poderia ser representada com suas estrelas:
 
 ### Exercício
 
-Há um site chamado HackerRank que possui diversos exercícios disponíveis para fazer online. Infelizmente está em inglês. [Este é o de vetor](https://www.hackerrank.com/challenges/arrays-ds/problem?isFullScreen=true).
+Há um site chamado HackerRank que possui diversos exercícios disponíveis para fazer online. Infelizmente está em inglês. [Este é o de vetor](https://www.hackerrank.com/challenges/arrays-ds).
 
 
 ## Lista ligada (Linked List)
@@ -113,6 +113,11 @@ Então resolveu que não queria mais o pão, ia comer só queijo mesmo:
 ```
 
 Os itens apontarem uns para os outros não quer dizer que eles tenham alguma ligação, isso é feito apenas para que a lista possa crescer indefinidamente, pois cada item "sabe" onde encontrar o próximo item. Para quem usa o sistema, essa ligação é invisível.
+
+
+### Exercício
+
+Há um site chamado HackerRank que possui diversos exercícios disponíveis para fazer online. Infelizmente está em inglês. [Este é o de lista ligada](https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list).
 
 
 ## Vetor x Lista Ligada
