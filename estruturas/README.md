@@ -45,6 +45,10 @@ E cada cidade poderia ser representada com suas estrelas:
                      `<  *>---<* *>´
 ```
 
+### Exercício
+
+Há um site chamado HackerRank que possui diversos exercícios disponíveis para fazer online. Infelizmente está em inglês. [Este é o de vetor](https://www.hackerrank.com/challenges/arrays-ds/problem?isFullScreen=true).
+
 
 ## Lista ligada (Linked List)
 
